@@ -1,144 +1,73 @@
-import { useState, useEffect } from 'react'
 import './App.css'
+import { useTheme, useCursorLight, useScrollEffects, usePreloader } from './hooks'
+import { Header, CursorLight, Preloader, Hero, About, Projects, Skills, Experience, Contact } from './components'
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true)
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  const { isDarkMode, toggleTheme } = useTheme()
+  const { isLoading, isExiting, preloaderRef } = usePreloader()
+  const { visibleSections, scrollProgress, scrollToSection, registerSection } = useScrollEffects(isLoading)
+  const { mousePosition, isClicking, cursorLightRef } = useCursorLight(isDarkMode, isLoading)
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 2000)
-
-    return () => clearTimeout(timer)
-  }, [])
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.body.classList.add('dark-theme')
-    } else {
-      document.body.classList.remove('dark-theme')
-    }
-  }, [isDarkMode])
-
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode)
-  }
 
   const downloadCV = () => {
     console.log('Descargando CV...')
   }
 
-  if (isLoading) {
-    return (
-      <div className="preloader">
-        <div className="loader">
-          <div className="loader-inner">
-            <div className="loader-line-wrap">
-              <div className="loader-line"></div>
-            </div>
-            <div className="loader-line-wrap">
-              <div className="loader-line"></div>
-            </div>
-            <div className="loader-line-wrap">
-              <div className="loader-line"></div>
-            </div>
-            <div className="loader-line-wrap">
-              <div className="loader-line"></div>
-            </div>
-            <div className="loader-line-wrap">
-              <div className="loader-line"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
   return (
-    <>
-      <header className="header">
-        <nav className="nav">
-          <div className="logo-container">
-            <div className="logo-placeholder">
-              <span>LOGO</span>
-            </div>
-          </div>
-          <div className="theme-toggle">
-            <button onClick={toggleTheme} className="theme-btn">
-              <i className={`fas ${isDarkMode ? 'fa-sun' : 'fa-moon'}`}></i>
-            </button>
-          </div>
-        </nav>
-      </header>
+    <div className="app">
+      <Header 
+        scrollToSection={scrollToSection}
+        isDarkMode={isDarkMode}
+        toggleTheme={toggleTheme}
+      />
 
       <main className="main">
-        <section className="hero">
-          <div className="hero-content">
-            <div className="hero-text">
-              <h1 className="hero-title">
-                <span className="greeting">Hola, soy</span>
-                <span className="name">Tu Nombre</span>
-              </h1>
-              <p className="hero-subtitle">Desarrollador Full Stack apasionado por crear experiencias digitales excepcionales</p>
-              <p className="hero-description">
-                Especializado en desarrollo web moderno con tecnologías de vanguardia. 
-                Transformo ideas en soluciones digitales innovadoras.
-              </p>
-              
-              <div className="hero-actions">
-                <button className="btn btn-primary" onClick={downloadCV}>
-                  <i className="fas fa-download"></i>
-                  Descargar CV
-                </button>
-                <button className="btn btn-secondary">
-                  <i className="fas fa-eye"></i>
-                  Ver Proyectos
-                </button>
-              </div>
+        <Hero 
+          registerSection={registerSection}
+          scrollProgress={scrollProgress}
+          downloadCV={downloadCV}
+        />
 
-              <div className="social-links">
-                <a href="#" className="social-link" aria-label="LinkedIn">
-                  <i className="fab fa-linkedin-in"></i>
-                </a>
-                <a href="#" className="social-link" aria-label="GitHub">
-                  <i className="fab fa-github"></i>
-                </a>
-                <a href="#" className="social-link" aria-label="Twitter">
-                  <i className="fab fa-twitter"></i>
-                </a>
-                <a href="#" className="social-link" aria-label="Instagram">
-                  <i className="fab fa-instagram"></i>
-                </a>
-                <a href="#" className="social-link" aria-label="Email">
-                  <i className="fas fa-envelope"></i>
-                </a>
-              </div>
-            </div>
+        <About 
+          registerSection={registerSection}
+          visibleSections={visibleSections}
+        />
 
-            <div className="hero-image">
-              <div className="image-container">
-                <div className="profile-img">
-                  <div className="img-placeholder">
-                    <i className="fas fa-user"></i>
-                  </div>
-                </div>
-                <div className="floating-elements">
-                  <div className="floating-element"></div>
-                  <div className="floating-element"></div>
-                  <div className="floating-element"></div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <Projects 
+          registerSection={registerSection}
+          visibleSections={visibleSections}
+        />
 
-          <div className="scroll-indicator">
-            <span>Scroll</span>
-            <div className="scroll-line"></div>
-          </div>
-        </section>
+        <Skills 
+          registerSection={registerSection}
+          visibleSections={visibleSections}
+        />
+
+        <Experience 
+          registerSection={registerSection}
+          visibleSections={visibleSections}
+        />
+
+        <Contact 
+          registerSection={registerSection}
+          visibleSections={visibleSections}
+        />
       </main>
-    </>
+
+      <CursorLight 
+        cursorLightRef={cursorLightRef}
+        isClicking={isClicking}
+        isDarkMode={isDarkMode}
+        isLoading={isLoading}
+        mousePosition={mousePosition}
+      />
+
+      <Preloader 
+        isLoading={isLoading}
+        isExiting={isExiting}
+        preloaderRef={preloaderRef}
+      />
+    </div>
   )
 }
 

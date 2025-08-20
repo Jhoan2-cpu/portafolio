@@ -4,7 +4,17 @@
       "Bash(cd:*)",
       "Bash(rm:*)",
       "Bash(npm install)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(grep:*)",
+      "Bash(mkdir:*)",
+      "Bash(npm install:*)",
+      "Bash(npx tailwindcss init:*)",
+      "Bash(./node_modules/.bin/tailwindcss:*)",
+      "Bash(pkill:*)",
+      "Bash(kill:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(cat:*)",
+      "Bash(true)"
     ],
     "deny": [],
     "ask": []
