@@ -11,8 +11,6 @@
 
 html {
   scroll-behavior: smooth;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(59, 130, 246, 0.5) rgba(156, 163, 175, 0.1);
 }
 
 body {
@@ -28,34 +26,11 @@ body {
 }
 
 /* Dark mode */
-body.dark {
+body.dark-theme {
   background: #0f172a;
   color: #f1f5f9;
 }
 
-body.dark html {
-  scrollbar-color: rgba(59, 130, 246, 0.7) rgba(156, 163, 175, 0.1);
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(156, 163, 175, 0.1);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgba(59, 130, 246, 0.6) 0%, rgba(147, 51, 234, 0.8) 100%);
-  border-radius: 10px;
-  transition: all 0.3s ease;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, rgba(59, 130, 246, 0.8) 0%, rgba(147, 51, 234, 1) 100%);
-  box-shadow: 0 0 12px rgba(59, 130, 246, 0.6);
-}
 
 /* Typography */
 .font-bebas {

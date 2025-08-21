@@ -2516,33 +2516,34 @@ body.dark-theme .pagination-dot.active {
 
 /* Webkit scrollbar (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px !important;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.08) !important;
+  border-radius: 3px !important;
 }
 
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(
     180deg,
-    rgba(102, 126, 234, 0.3) 0%,
-    rgba(144, 205, 244, 0.6) 50%,
-    rgba(183, 148, 246, 0.8) 100%
-  );
-  border-radius: 4px;
-  transition: all 0.3s ease;
+    rgba(102, 126, 234, 0.6) 0%,
+    rgba(144, 205, 244, 0.8) 50%,
+    rgba(183, 148, 246, 0.9) 100%
+  ) !important;
+  border-radius: 3px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 0 4px rgba(102, 126, 234, 0.3) !important;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(
     180deg,
-    rgba(102, 126, 234, 0.6) 0%,
-    rgba(144, 205, 244, 0.8) 50%,
+    rgba(102, 126, 234, 0.8) 0%,
+    rgba(144, 205, 244, 0.9) 50%,
     rgba(183, 148, 246, 1) 100%
-  );
-  box-shadow: 0 0 8px rgba(144, 205, 244, 0.4);
+  ) !important;
+  box-shadow: 0 0 10px rgba(144, 205, 244, 0.6) !important;
 }
 
 ::-webkit-scrollbar-thumb:active {
@@ -2555,37 +2556,37 @@ body.dark-theme .pagination-dot.active {
 
 /* Scrollbar para modo oscuro */
 body.dark-theme ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.1) !important;
 }
 
 body.dark-theme ::-webkit-scrollbar-thumb {
   background: linear-gradient(
     180deg,
-    rgba(144, 205, 244, 0.4) 0%,
-    rgba(144, 205, 244, 0.7) 50%,
-    rgba(183, 148, 246, 0.9) 100%
-  );
-  box-shadow: 0 0 4px rgba(144, 205, 244, 0.2);
+    rgba(144, 205, 244, 0.7) 0%,
+    rgba(144, 205, 244, 0.9) 50%,
+    rgba(183, 148, 246, 1) 100%
+  ) !important;
+  box-shadow: 0 0 6px rgba(144, 205, 244, 0.4) !important;
 }
 
 body.dark-theme ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(
     180deg,
-    rgba(144, 205, 244, 0.7) 0%,
+    rgba(144, 205, 244, 0.9) 0%,
     rgba(144, 205, 244, 1) 50%,
     rgba(183, 148, 246, 1) 100%
-  );
-  box-shadow: 0 0 12px rgba(144, 205, 244, 0.6);
+  ) !important;
+  box-shadow: 0 0 15px rgba(144, 205, 244, 0.8) !important;
 }
 
 /* Firefox scrollbar */
 html {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(144, 205, 244, 0.6) rgba(0, 0, 0, 0.05);
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(144, 205, 244, 0.8) rgba(0, 0, 0, 0.08) !important;
 }
 
 body.dark-theme html {
-  scrollbar-color: rgba(144, 205, 244, 0.7) rgba(255, 255, 255, 0.05);
+  scrollbar-color: rgba(144, 205, 244, 0.9) rgba(255, 255, 255, 0.1) !important;
 }
 
 
